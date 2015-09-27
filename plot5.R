@@ -7,7 +7,7 @@ SCC <- readRDS('Source_Classification_Code.rds')
 NEI_SCC <- merge(NEI,SCC)
 
 # Grepping for all Mobile levels in the EI.Sector field. This excludes emissions from Non-Road equipment.
-NEI_SCC_vehicles <- droplevels(NEI_SCC[grepl("Mobile - [A|C|L|O]",NEI_SCC$EI.Sector,ignore.case=T)& NEI$fips==24510,])
+NEI_SCC_vehicles <- droplevels(NEI_SCC[grepl("Mobile - [A|C|L|O]",NEI_SCC$EI.Sector,ignore.case=T)& NEI_SCC$fips==24510,])
 
 total <- aggregate(Emissions~year,NEI_SCC_vehicles,sum)
 
